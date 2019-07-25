@@ -14,19 +14,19 @@ import java.util.Set;
 public class No18 {
 
     public static void main(String[] args) {
-        Node a = new Node(1);
-        Node b = new Node(2);
-        Node c = new Node(3);
-        Node d = new Node(4);
-        Node e = new Node(4);
-        Node f = new Node(5);
+        ListNode a = new ListNode(1);
+        ListNode b = new ListNode(2);
+        ListNode c = new ListNode(3);
+        ListNode d = new ListNode(4);
+        ListNode e = new ListNode(4);
+        ListNode f = new ListNode(5);
         a.setNext(b);
         b.setNext(c);
         c.setNext(d);
         d.setNext(e);
         e.setNext(f);
 
-        Node temp = a;
+        ListNode temp = a;
 
         delete(a, f);
         DelNode2(temp);
@@ -40,7 +40,7 @@ public class No18 {
      * 题目一：在o(1)时间内删除链表节点。
      * 给定单向链表的头指针和一个节点指针，定义一个函数在时间内删除该节点
      */
-    private static void delete(Node head, Node c) {
+    private static void delete(ListNode head, ListNode c) {
         // 如果是尾节点,只能遍历删除
         if (c.next == null) {
             while (head.next != c) {
@@ -59,14 +59,14 @@ public class No18 {
      * 题目二：删除链表中重复的节点。
      * 在一个排序的链表中，如何删除重复的节点？
      */
-    private static void DelNode1(Node head) {
+    private static void DelNode1(ListNode head) {
         if (head == null) {
             return;
         }
         Set<Integer> set = new HashSet<Integer>();
         set.add(head.data);
-        Node pre = head;
-        Node cur = head.next;
+        ListNode pre = head;
+        ListNode cur = head.next;
         while (cur != null) {
             if (set.contains(cur.data)) {
                 pre.next = cur.next;
@@ -78,14 +78,14 @@ public class No18 {
         }
     }
 
-    private static void DelNode2(Node head) {
+    private static void DelNode2(ListNode head) {
         if (head == null) {
             return;
         }
-        Node cur = head;
+        ListNode cur = head;
         while (cur != null) {
-            Node pre = cur;
-            Node next = cur.next;
+            ListNode pre = cur;
+            ListNode next = cur.next;
             while (next != null) {
                 if (cur.data == next.data) {
                     pre.next = next.next;

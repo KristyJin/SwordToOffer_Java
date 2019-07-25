@@ -14,11 +14,11 @@ import java.util.Stack;
 
 public class No6 {
     public static void main(String[] args) {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
         node1.setNext(node2);
         node2.setNext(node3);
         node3.setNext(node4);
@@ -29,8 +29,8 @@ public class No6 {
 
     //每经过一个节点，把该节点放到一个栈中，当遍历完整个链表后，再从栈顶开始逐个输出节点的值
     // 采用栈
-    public static void printListRevers(Node node) {
-        Stack<Node> stack = new Stack<Node>();
+    public static void printListRevers(ListNode node) {
+        Stack<ListNode> stack = new Stack<ListNode>();
         while (node!= null) {
             stack.push(node);
             node=node.next;
@@ -43,15 +43,13 @@ public class No6 {
     //用递归实现，递归本质上就是一个栈结构，先递归输出后面的节点，再输出该节点本身。
     //存在问题：当链表非常长的时候，就会导致函数调用的层级很深，从而可能导致函数调用栈溢出。
     //采用递归
-    public static void printListRevers1(Node node) {
+    public static void printListRevers1(ListNode node) {
         if(node!=null) {
             printListRevers1(node.next);
             System.out.println(node.data);
         }else
             return;
     }
-
-
 }
 
 

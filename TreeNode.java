@@ -7,6 +7,7 @@ package JianzhiOffer;
 
 /**
  * 树的定义如下：
+ * 使用此结构体的函数No7、No26
  */
 public class TreeNode {
     char data;

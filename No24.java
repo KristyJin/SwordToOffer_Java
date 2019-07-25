@@ -11,26 +11,26 @@ package JianzhiOffer;
  */
 public class No24 {
     public static void main(String[] args) {
-        Node node1 = new Node(1);
-        Node node2 = new Node(2);
-        Node node3 = new Node(3);
-        Node node4 = new Node(4);
-        Node node5 = new Node(5);
+        ListNode node1 = new ListNode(1);
+        ListNode node2 = new ListNode(2);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
         node1.setNext(node2);
         node2.setNext(node3);
         node3.setNext(node4);
         node4.setNext(node5);
-        Node newNode = reverse(node1);
+        ListNode newNode = reverse(node1);
         //Node newNode = reverse2(node1);//递归实现
         while (newNode != null) {
             System.out.print(newNode.data + " ");
             newNode = newNode.getNext();
         }
     }
-    private static Node reverse(Node head) {
-        Node pre = head;
-        Node cur = head.getNext();
-        Node temp;
+    private static ListNode reverse(ListNode head) {
+        ListNode pre = head;
+        ListNode cur = head.getNext();
+        ListNode temp;
         while (cur != null) {
             temp = cur.getNext();
             cur.setNext(pre);
@@ -41,11 +41,11 @@ public class No24 {
         return pre;
     }
 
-    private static Node reverse2(Node head) {
+    private static ListNode reverse2(ListNode head) {
         if (head.next == null) {
             return head;
         }
-        Node reverseHead = reverse(head.getNext());
+        ListNode reverseHead = reverse(head.getNext());
         head.getNext().setNext(head);
         head.setNext(null);
 
