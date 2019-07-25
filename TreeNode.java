@@ -11,6 +11,7 @@ package JianzhiOffer;
  */
 public class TreeNode {
     char data;
+    int value;
     TreeNode Lchild;
     TreeNode Rchild;
 
@@ -18,9 +19,14 @@ public class TreeNode {
         super();
         this.data = data;
     }
-
-    public TreeNode(char data, TreeNode lchild, TreeNode rchild) {
+    public TreeNode(int value) {
         super();
+        this.value = value;
+    }
+
+    public TreeNode(char data,int value, TreeNode lchild, TreeNode rchild) {
+        super();
+        this.value = value;
         this.data = data;
         Lchild = lchild;
         Rchild = rchild;
@@ -32,6 +38,14 @@ public class TreeNode {
 
     public void setData(char data) {
         this.data = data;
+    }
+
+    public int getValue() {
+        return value;
+    }
+
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public TreeNode getLchild() {
