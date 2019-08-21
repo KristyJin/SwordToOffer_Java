@@ -12,7 +12,7 @@ package JianzhiOffer;
  */
 public class No17 {
     public static void main(String[] args) {
-        //method1(3);
+        method1(3);
         method2(3);
     }
 

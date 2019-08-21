@@ -6,7 +6,7 @@ package JianzhiOffer;/*
 
 /**
  * 链表需要的定义如下：
- * 使用的有No6、No18、No22、No24、No25、No35
+ * 使用的有No6、No18、No22、No24、No25、No35、No52
  */
 public class ListNode {
     int data;

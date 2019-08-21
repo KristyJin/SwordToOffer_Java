@@ -43,5 +43,4 @@ public class No28 {
         return isSymm(root1.getLchild(),root2.getRchild())
                 && isSymm(root1.getRchild(),root2.getLchild());
     }
-
 }
