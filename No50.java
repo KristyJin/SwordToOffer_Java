@@ -1,5 +1,6 @@
 package JianzhiOffer;
-
+import java.util.HashMap;
+import java.util.Map;
 /**
  * 第一个只出现一次的字符： 字符串中第一个只出现一次的字符。 在字符串中找出第一个只出现一次的字符。如输入“abaccdeff”，则输出'b'。
  */
@@ -22,11 +23,47 @@ public class No50 {
 		return '\0';
 	}
 
+	public static int FirstNotRepeatingChar1(String str) {
+		Map<Character, Integer> map = new HashMap();
+		char[] data = new char[10000];
+		// 统计字符出现次数以及记录字符位置
+		for (int i = 0; i < str.length(); i++) {
+			char cur = str.charAt(i);
+			if (map.get(cur) == null) {
+				map.put(cur, 1);
+			} else {
+				map.put(cur, map.get(cur) + 1);
+			}
+			data[i] = cur;
+		}
+		// 寻找第一个只出现一次字符，并返回位置
+		for (int i = 0; i < str.length(); i++) {
+			if (map.get(data[i]) == 1) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
 	public static void main(String[] args) {
 		System.out.println((firstNotRepeatingChar("google") == 'l'));
 		System.out.println((firstNotRepeatingChar("aabccdbd") == '\0'));
 		System.out.println((firstNotRepeatingChar("$abcdefg") == '$'));
-		System.out.println((firstNotRepeatingChar(null) == '\0'));
+        	System.out.println((firstNotRepeatingChar(null) == '\0'));
+        
+       		String str = "abckjkac";
+		for (int i = 0; i < str.length(); i++) {
+			// 截去第i个字符
+			String temp = str.substring(0, i) + str.substring(i + 1);
+			// 在剩余的字符串中搜索有没有与第i个字符相同的，没有的时候会返回-1
+			int idx = temp.indexOf(str.charAt(i));
+			// 剩下的字符串中没有的，就是唯一的
+			if (idx == -1) {
+				String c = String.valueOf(str.charAt(i));
+				System.out.println(c);
+				break;
+			}
+		}
 	}
 	
 	//题目：请实现一个函数用来找出字符流中第一个只出现一次的字符。例如，当从
